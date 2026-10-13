@@ -94,30 +94,35 @@ public class Bibliothek {
             return ergebnis;
         }
 
-        double max = 0;
+        double maxPreis = 0;
+        int maxSeiten = 0;
 
         for (Buch buch : buecher) {
-            double summe = 0;
-
             for (Buch buch1 : buecher) {
-                summe = buch.getPreis() + buch1.getPreis();
-                int maxSeiten = buch.getSeitenanzahl() + buch1.getSeitenanzahl();
-
-                if (summe > max && summe <= budget) {
-                    max = summe;
-                    ergebnis.clear();
-                    ergebnis.add(buch);
-                    ergebnis.add(buch1);
+                if (buch == buch1) {
+                    continue;
                 }
-                if (summe == max) {
-                    if (buch.getSeitenanzahl() + buch1.getSeitenanzahl() > maxSeiten) {
+
+                double summePreis = buch.getPreis() + buch1.getPreis();
+                int summeSeiten = buch.getSeitenanzahl() + buch1.getSeitenanzahl();
+
+                if (summePreis <= budget) {
+                    if (summePreis > maxPreis) {
+                        maxPreis = summePreis;
+                        maxSeiten = summeSeiten;
+                        ergebnis.clear();
+                        ergebnis.add(buch);
+                        ergebnis.add(buch1);
+                    }
+                    else if (summePreis == maxPreis && summeSeiten > maxSeiten) {
+                        maxSeiten = summeSeiten;
                         ergebnis.clear();
                         ergebnis.add(buch);
                         ergebnis.add(buch1);
                     }
                 }
             }
-            return ergebnis;
         }
+        return ergebnis;
     }
 }
