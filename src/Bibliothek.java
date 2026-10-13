@@ -72,5 +72,18 @@ public class Bibliothek {
         return teuersteBuch;
     }
 
+    public List<Buch> mindestanzahlVonSeiten(List<Buch> buecher, int min_seiten) {
+        List<Buch> ergebnis = new ArrayList<>();
 
+        if (buecher == null || buecher.isEmpty()) {
+            return ergebnis;
+        }
+
+        for (Buch buch : buecher) {
+            if (buch.getSeitenanzahl() >= min_seiten) {
+                ergebnis.add(buch);
+            }
+        }
+        return ergebnis;
+    }
 }
