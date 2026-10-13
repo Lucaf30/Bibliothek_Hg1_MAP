@@ -8,7 +8,7 @@ public class Bibliothek {
         this.buecher = buecher;
     }
 
-    public List<Buch> BuecherVonAutor(String autor) {
+    public List<Buch> buecherVonAutor(String autor) {
         List<Buch> ergebnis = new ArrayList<>();
 
         if (autor == null) {
@@ -23,7 +23,7 @@ public class Bibliothek {
         return ergebnis;
     }
 
-    public double DurchschnittSeiten(List<Buch> buecher) {
+    public double durchschnittSeiten(List<Buch> buecher) {
 
         if(buecher == null || buecher.isEmpty()) {
             return 0.0;
@@ -37,6 +37,21 @@ public class Bibliothek {
             count++;
         }
         double ergebnis = summe / count;
+        return ergebnis;
+    }
+
+    public List<Buch> maxPreis(List<Buch> buecher, double preis) {
+        List<Buch> ergebnis = new ArrayList<>();
+
+        if (buecher == null || buecher.isEmpty()) {
+            return ergebnis;
+        }
+
+        for (Buch buch : buecher) {
+            if (buch.getPreis() <= preis) {
+                ergebnis.add(buch);
+            }
+        }
         return ergebnis;
     }
 }
