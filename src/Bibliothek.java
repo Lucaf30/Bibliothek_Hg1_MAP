@@ -22,4 +22,21 @@ public class Bibliothek {
         }
         return ergebnis;
     }
+
+    public double DurchschnittSeiten(List<Buch> buecher) {
+
+        if(buecher == null || buecher.isEmpty()) {
+            return 0.0;
+        }
+
+        int count = 0;
+        double summe = 0;
+
+        for (Buch buch : buecher) {
+            summe += buch.getSeitenanzahl();
+            count++;
+        }
+        double ergebnis = summe / count;
+        return ergebnis;
+    }
 }
