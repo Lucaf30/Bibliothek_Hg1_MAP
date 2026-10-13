@@ -30,7 +30,7 @@ public class Bibliothek {
         }
 
         int count = 0;
-        double summe = 0;
+        double summe = 0.0;
 
         for (Buch buch : buecher) {
             summe += buch.getSeitenanzahl();
