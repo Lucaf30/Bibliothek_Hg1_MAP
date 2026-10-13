@@ -54,4 +54,23 @@ public class Bibliothek {
         }
         return ergebnis;
     }
+
+    public Buch teuersteBuch(List<Buch> buecher) {
+        if (buecher == null || buecher.isEmpty()) {
+            return null;
+        }
+
+        double max = 0;
+        Buch teuersteBuch = null;
+
+        for (Buch buch : buecher) {
+            if (buch.getPreis() > max) {
+                max = buch.getPreis();
+                teuersteBuch = buch;
+            }
+        }
+        return teuersteBuch;
+    }
+
+
 }
