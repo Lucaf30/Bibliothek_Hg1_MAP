@@ -4,7 +4,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        // Creăm lista de cărți[cite: 1]
         List<Buch> buecher = new ArrayList<>();
         buecher.add(new Buch("Clean Code", "Robert Martin", 45.0, 464));
         buecher.add(new Buch("1984", "George Orwell", 18.0, 328));
@@ -14,7 +13,6 @@ public class Main {
 
         Bibliothek bibliothek = new Bibliothek(buecher);
 
-        // Apelăm metodele și printăm direct rezultatele
         System.out.println("1. Orwell: " + bibliothek.buecherVonAutor("George Orwell"));
 
         System.out.println("2. Media pagini: " + bibliothek.durchschnittSeiten(buecher));
